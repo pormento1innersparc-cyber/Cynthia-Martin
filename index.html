@@ -161,6 +161,30 @@
       text-align:center;color:#fff;font-weight:700;font-style:italic;font-size:19px;
       margin-top:38px;max-width:520px;margin-left:auto;margin-right:auto;
     }
+    .why-cynthia-block{
+      display:flex;align-items:center;gap:28px;max-width:680px;margin:44px auto 0;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;padding:22px;
+    }
+    .why-cynthia-block img{
+      width:110px;height:110px;border-radius:50%;object-fit:cover;flex-shrink:0;
+      border:3px solid var(--gold);
+    }
+    .why-cynthia-block .wc-title{color:var(--gold);font-weight:700;font-size:15px;margin-bottom:6px;}
+    .why-cynthia-block .wc-text{color:#dfe4f0;font-size:14.5px;line-height:1.6;}
+    .payoff-block{max-width:560px;margin:40px auto 0;text-align:center;}
+    .payoff-block img{
+      width:100%;border-radius:16px;display:block;border:3px solid var(--gold);
+    }
+    .payoff-block .payoff-caption{color:#dfe4f0;font-size:13px;font-style:italic;margin-top:10px;}
+    .painpoints-cta{
+      display:block;text-align:center;margin:34px auto 0;max-width:320px;
+      background:var(--gold);color:var(--navy);font-weight:700;font-size:15px;
+      padding:14px 24px;border-radius:50px;text-decoration:none;
+    }
+    @media(max-width:600px){
+      .why-cynthia-block{flex-direction:column;text-align:center;}
+    }
     @media(max-width:700px){
       .painpoints-headline{font-size:26px;}
       .painpoints-sub{font-size:16px;}
@@ -549,6 +573,14 @@
           <div class="pp-text">Nasa abroad ako, walang oras mag-site visit. Sino ang matitiwalaan kong tutulong?</div>
         </div>
         <div class="painpoint-row">
+          <div class="pp-icon">📄</div>
+          <div class="pp-text">Hindi ko rin maintindihan ‘yung requirements ng housing loan, saan ba dapat magsimula?</div>
+        </div>
+        <div class="painpoint-row">
+          <div class="pp-icon">⏳</div>
+          <div class="pp-text">Habang naghihintay ako, baka lalo pang tumaas ‘yung presyo ng property na gusto ko.</div>
+        </div>
+        <div class="painpoint-row">
           <div class="pp-icon">👨‍👩‍👧‍👦</div>
           <div class="pp-text">Kailan ko kaya mabibigyan ng permanenteng tahanan ang pamilya ko?</div>
         </div>
@@ -556,9 +588,28 @@
           <div class="pp-icon">🏠</div>
           <div class="pp-text">Pag-uwi ko sa Pilipinas, gusto ko nang may sarili na kaming tahanan — hindi na paupahan.</div>
         </div>
+        <div class="painpoint-row">
+          <div class="pp-icon">😔</div>
+          <div class="pp-text">Puro padala, renta, bills — pagod na akong walang napupuntahang sarili.</div>
+        </div>
+      </div>
+
+      <div class="why-cynthia-block">
+        <img src="https://drive.google.com/thumbnail?id=1iNrHgXGvQCcSbjER3tMWOBOwOCVwE4zN&sz=w300" alt="Cynthia guiding a client in person">
+        <div>
+          <div class="wc-title">Bakit Cynthia?</div>
+          <div class="wc-text">Personal na sumasama si Cynthia sa buong proseso — mula paperwork, financing breakdown, hanggang turnover. Marami na siyang natulungang OFW client, kahit malayo sila, video call consultation lang ang kailangan.</div>
+        </div>
+      </div>
+
+      <div class="payoff-block">
+        <img src="https://drive.google.com/thumbnail?id=13_WDY_0OfyXW3HHiNuJdfj2lf6wsXLEb&sz=w800" alt="Family holding their new home key, FamilyGoals">
+        <div class="payoff-caption">Isa sa mga pamilyang natulungan namin — key turnover day. #FamilyGoals</div>
       </div>
 
       <p class="painpoints-closer">Hindi mo kailangang mag-isa sa paghahanap ng bahay para sa pamilya mo.</p>
+
+      <a href="#kit" class="painpoints-cta" onclick="openLeadModal(); return false;">🏡 Kunin ang Free Starter Kit Ko</a>
     </div>
   </section>
 
