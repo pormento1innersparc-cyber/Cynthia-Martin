@@ -352,15 +352,21 @@
     .static-card{position:relative;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(11,31,77,.08);}
     .static-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .4s ease;}
     .static-card:hover img{transform:scale(1.06);}
-    .static-caption{padding:14px 16px;}
-    .static-caption .static-title{color:var(--navy);font-weight:700;font-size:14.5px;margin-bottom:3px;}
-    .static-caption .static-detail{color:#666;font-size:12px;line-height:1.5;}
+    .awards-section .static-card img{aspect-ratio:auto;object-fit:contain;background:#f4f4f4;max-height:640px;}
+    .awards-section .static-card:hover img{transform:none;}
+    .static-caption{padding:16px 18px;}
+    .static-caption .static-title{color:var(--navy);font-weight:700;font-size:16px;margin-bottom:5px;}
+    .static-caption .static-detail{color:var(--text);font-size:14px;line-height:1.6;}
     .sold-badge{
       position:absolute;top:10px;left:10px;background:var(--gold);color:#fff;font-weight:700;font-size:11.5px;
       letter-spacing:0.4px;padding:5px 10px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,.2);z-index:2;
     }
     @media(max-width:600px){
       .static-grid-2col{grid-template-columns:1fr;max-width:420px;}
+    }
+    .static-grid-1col{
+      display:grid;grid-template-columns:1fr;gap:24px;
+      max-width:520px;margin:34px auto 0;
     }
 
     /* AWARDS & RECOGNITION */
@@ -805,7 +811,7 @@
       <div class="eyebrow" style="text-align:center;">Recognized in the Industry</div>
       <h2 style="text-align:center;">Awards &amp; Recognition</h2>
       <p style="text-align:center;color:var(--text);max-width:560px;margin:0 auto;">Bahagi ng aking commitment na tumulong sa mga Pilipinong pamilya sa paghahanap ng tahanan.</p>
-      <div class="static-grid-2col">
+      <div class="static-grid-1col">
         <div class="static-card">
           <img src="https://drive.google.com/thumbnail?id=1mCAmk_fDIGjOkX8Zct8m_MHHaGRObq2y&sz=w900" alt="Premier Realty Brokerage Award">
           <div class="static-caption">
@@ -825,6 +831,13 @@
           <div class="static-caption">
             <div class="static-title">Ice Breaker Award, Q4 2025</div>
             <div class="static-detail">InnerSparc Realty Corporation — recognized for the first sale of the quarter, Merrydale St. Joseph.</div>
+          </div>
+        </div>
+        <div class="static-card">
+          <img src="https://drive.google.com/thumbnail?id=1Ckl5cqnwFC3u6lGkBBvGBF1SGPcYCIeW&sz=w900" alt="Top 1 Sales Agent Award, Masaito Homes">
+          <div class="static-caption">
+            <div class="static-title">Top 1 Sales Agent, January 2026</div>
+            <div class="static-detail">Masaito Homes — recognized as Top 1 in the Sales Agent Category, with ₱4.178M in sales for the month.</div>
           </div>
         </div>
       </div>
