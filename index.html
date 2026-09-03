@@ -345,55 +345,26 @@
 
     /* SOLD HOMES GALLERY */
     .sold-gallery{background:#fff;}
-    .gallery-carousel{position:relative;max-width:820px;margin:34px auto 0;padding:0 48px;}
-    .gallery-track{
-      display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
-      -ms-overflow-style:none;scrollbar-width:none;padding-bottom:2px;
+    .static-grid-2col{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+      max-width:820px;margin:34px auto 0;
     }
-    .gallery-track::-webkit-scrollbar{display:none;}
-    .gallery-item{
-      position:relative;flex:0 0 100%;scroll-snap-align:start;
-      border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(11,31,77,.08);
-      aspect-ratio:4/3;background:#f2f0ec;
-    }
-    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
-    .gallery-item:hover img{transform:scale(1.06);}
-    .gallery-empty{width:100%;text-align:center;color:#999;font-size:14px;padding:40px 0;}
+    .static-card{position:relative;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(11,31,77,.08);}
+    .static-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .4s ease;}
+    .static-card:hover img{transform:scale(1.06);}
+    .static-caption{padding:14px 16px;}
+    .static-caption .static-title{color:var(--navy);font-weight:700;font-size:14.5px;margin-bottom:3px;}
+    .static-caption .static-detail{color:#666;font-size:12px;line-height:1.5;}
     .sold-badge{
-      position:absolute;top:12px;left:12px;background:var(--gold);color:#fff;font-weight:700;font-size:13px;
-      letter-spacing:0.5px;padding:6px 12px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,.2);z-index:2;
+      position:absolute;top:10px;left:10px;background:var(--gold);color:#fff;font-weight:700;font-size:11.5px;
+      letter-spacing:0.4px;padding:5px 10px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,.2);z-index:2;
     }
-    .gallery-arrow{
-      position:absolute;top:50%;transform:translateY(-50%);background:rgba(11,31,77,.55);color:#fff;
-      border:none;width:40px;height:40px;border-radius:50%;font-size:22px;cursor:pointer;
-      display:flex;align-items:center;justify-content:center;transition:background .2s ease;z-index:3;
-    }
-    .gallery-arrow:hover{background:rgba(11,31,77,.85);}
-    .gallery-prev{left:0;}
-    .gallery-next{right:0;}
-    @media(max-width:800px){
-      .gallery-carousel{padding:0 40px;}
-    }
-    @media(max-width:500px){
-      .gallery-carousel{padding:0 36px;}
-      .gallery-arrow{width:34px;height:34px;font-size:18px;}
+    @media(max-width:600px){
+      .static-grid-2col{grid-template-columns:1fr;max-width:420px;}
     }
 
     /* AWARDS & RECOGNITION */
     .awards-section{background:var(--warm-white);}
-    .awards-carousel{position:relative;max-width:820px;margin:34px auto 0;padding:0 48px;}
-    .awards-track{
-      display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
-      -ms-overflow-style:none;scrollbar-width:none;padding-bottom:2px;
-    }
-    .awards-track::-webkit-scrollbar{display:none;}
-    .award-card{flex:0 0 100%;scroll-snap-align:start;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(11,31,77,.08);}
-    .award-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
-    .award-caption{padding:16px 18px;}
-    .award-caption .award-title{color:var(--navy);font-weight:700;font-size:16px;margin-bottom:4px;}
-    .award-caption .award-detail{color:#666;font-size:12.5px;line-height:1.5;}
-    @media(max-width:800px){.awards-carousel{padding:0 40px;}}
-    @media(max-width:500px){.awards-carousel{padding:0 36px;}}
 
     /* FINAL CTA */
     .final-cta{background:var(--navy);color:#fff;text-align:center;}
@@ -774,12 +745,55 @@
     <div class="container">
       <div class="eyebrow" style="text-align:center;">Real Turnovers, Real Families</div>
       <h2 style="text-align:center;">Families I have Helped</h2>
-      <div class="gallery-carousel" id="galleryCarousel">
-        <div class="gallery-track" id="galleryTrack">
-          <div class="gallery-empty">Loading photos...</div>
+      <div class="static-grid-2col">
+        <div class="static-card">
+          <div class="sold-badge">Sold</div>
+          <img src="https://drive.google.com/thumbnail?id=1KhCz5QymMOlw_GpC9KbPcXRk8_ZcpB5-&sz=w900" alt="House & Lot turnover, Cavite">
+          <div class="static-caption">
+            <div class="static-title">House & Lot — Bacoor, Cavite</div>
+            <div class="static-detail">Turnover sa isang first-time buyer family, financed thru Pag-IBIG.</div>
+          </div>
         </div>
-        <button type="button" class="gallery-arrow gallery-prev" onclick="galleryPrev()" aria-label="Previous photo">‹</button>
-        <button type="button" class="gallery-arrow gallery-next" onclick="galleryNext()" aria-label="Next photo">›</button>
+        <div class="static-card">
+          <div class="sold-badge">Sold</div>
+          <img src="https://drive.google.com/thumbnail?id=1HEeAGsP4dUD4pF06ccTIxsNLZjHEJ479&sz=w900" alt="Condo unit turnover, Metro Manila">
+          <div class="static-caption">
+            <div class="static-title">Condo Unit — Quezon City</div>
+            <div class="static-detail">Bagong tahanan ng isang young professional, malapit sa work.</div>
+          </div>
+        </div>
+        <div class="static-card">
+          <div class="sold-badge">Sold</div>
+          <img src="https://drive.google.com/thumbnail?id=13s3rb-1_pRoOtC82wv91FCKe6N8BVyU3&sz=w900" alt="Townhouse turnover, Cavite">
+          <div class="static-caption">
+            <div class="static-title">Townhouse — Imus, Cavite</div>
+            <div class="static-detail">Natulungan naming pamilya na lumipat mula sa paupahan patungo sa sarili nilang bahay.</div>
+          </div>
+        </div>
+        <div class="static-card">
+          <div class="sold-badge">Sold</div>
+          <img src="https://drive.google.com/thumbnail?id=1SbkeRTuIN54c___lpWed2xmOaC7luH-d&sz=w900" alt="House & Lot turnover, Laguna">
+          <div class="static-caption">
+            <div class="static-title">House & Lot — Laguna</div>
+            <div class="static-detail">Turnover day ng isang growing family, dagdag na space para sa mga anak.</div>
+          </div>
+        </div>
+        <div class="static-card">
+          <div class="sold-badge">Sold</div>
+          <img src="https://drive.google.com/thumbnail?id=1nCRLCcsYeVPnlKkL4qA9TwXg-t_r8ZLT&sz=w900" alt="Condo unit turnover, Makati">
+          <div class="static-caption">
+            <div class="static-title">Condo Unit — Makati</div>
+            <div class="static-detail">Investment property ng isang OFW client, na-secure kahit malayo sa Pilipinas.</div>
+          </div>
+        </div>
+        <div class="static-card">
+          <div class="sold-badge">Sold</div>
+          <img src="https://drive.google.com/thumbnail?id=101NX65dF5uokS2XBpNy2T8y6b-e6AWKW&sz=w900" alt="House & Lot turnover, Cavite">
+          <div class="static-caption">
+            <div class="static-title">House & Lot — Dasmariñas, Cavite</div>
+            <div class="static-detail">Key turnover day, matagumpay na naisakatuparan ang dream home ng pamilya.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -791,12 +805,28 @@
       <div class="eyebrow" style="text-align:center;">Recognized in the Industry</div>
       <h2 style="text-align:center;">Awards &amp; Recognition</h2>
       <p style="text-align:center;color:var(--text);max-width:560px;margin:0 auto;">Bahagi ng aking commitment na tumulong sa mga Pilipinong pamilya sa paghahanap ng tahanan.</p>
-      <div class="awards-carousel" id="awardsCarousel">
-        <div class="awards-track" id="awardsTrack">
-          <div class="gallery-empty">Loading awards...</div>
+      <div class="static-grid-2col">
+        <div class="static-card">
+          <img src="https://drive.google.com/thumbnail?id=1mCAmk_fDIGjOkX8Zct8m_MHHaGRObq2y&sz=w900" alt="Premier Realty Brokerage Award">
+          <div class="static-caption">
+            <div class="static-title">Premier Realty Brokerage Award</div>
+            <div class="static-detail">MCR Realty Ventures — presented to Innersparc Realty Corporation for outstanding marketing performance.</div>
+          </div>
         </div>
-        <button type="button" class="gallery-arrow gallery-prev" onclick="awardsPrev()" aria-label="Previous award">‹</button>
-        <button type="button" class="gallery-arrow gallery-next" onclick="awardsNext()" aria-label="Next award">›</button>
+        <div class="static-card">
+          <img src="https://drive.google.com/thumbnail?id=1RACFpWDWiUUtTDovjqQ4lOu5bNTMV8id&sz=w900" alt="Certificate of Recognition — Top 2 Seller Q1 2026">
+          <div class="static-caption">
+            <div class="static-title">Top 2 Seller, Q1 2026</div>
+            <div class="static-detail">InnerSparc Certificate of Recognition, awarded during the 1st Quarter General Assembly, Bacoor, Cavite.</div>
+          </div>
+        </div>
+        <div class="static-card">
+          <img src="https://drive.google.com/thumbnail?id=1HQ2NxQHqxU5YToOk6jJ04cIYKsOQSlqp&sz=w900" alt="Ice Breaker Award Q4 2025">
+          <div class="static-caption">
+            <div class="static-title">Ice Breaker Award, Q4 2025</div>
+            <div class="static-detail">InnerSparc Realty Corporation — recognized for the first sale of the quarter, Merrydale St. Joseph.</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -921,8 +951,9 @@
           <div class="quiz-step-label" style="margin-top:6px;">Complete Your Inquiry</div>
           <div class="form-row" style="margin-top:10px;">
             <input type="text" id="quiz-name" placeholder="Full Name" required>
-            <input type="email" id="quiz-email" placeholder="Email Address" required>
+            <input type="tel" id="quiz-mobile" placeholder="Mobile Number" required>
           </div>
+          <input type="email" id="quiz-email" placeholder="Email Address" required style="margin-top:10px;">
           <div class="quiz-step-label" style="margin-top:14px;">Kailan Mo Gustong Mag-Consultation?</div>
           <div class="form-row" style="margin-top:10px;">
             <input type="date" id="quiz-date" required>
@@ -1008,133 +1039,7 @@
       document.body.style.overflow = '';
     }
 
-    // ---- SOLD HOMES GALLERY CAROUSEL (3-across, scroll-snap) ----
-    var galleryImages = [];
-    var galleryAutoplayTimer = null;
-
-    function renderGallery(images){
-      galleryImages = images || [];
-      var track = document.getElementById('galleryTrack');
-      if(!track) return;
-
-      if(!galleryImages.length){
-        track.innerHTML = '<div class="gallery-empty">Wala pang photos. Idagdag ang mga ito sa "Gallery" sheet tab.</div>';
-        return;
-      }
-
-      var itemsHtml = '';
-      galleryImages.forEach(function(url){
-        itemsHtml += '<div class="gallery-item">' +
-          '<div class="sold-badge">✓ SOLD</div>' +
-          '<img src="' + url + '" alt="Family turnover — Mommy Property Finder" loading="lazy">' +
-          '</div>';
-      });
-      track.innerHTML = itemsHtml;
-      startGalleryAutoplay();
-    }
-
-    function galleryItemStep(){
-      var track = document.getElementById('galleryTrack');
-      var item = track ? track.querySelector('.gallery-item') : null;
-      if(!item) return 0;
-      var style = window.getComputedStyle(track);
-      var gap = parseFloat(style.columnGap || style.gap || '16') || 16;
-      return item.getBoundingClientRect().width + gap;
-    }
-
-    function galleryScroll(direction){
-      var track = document.getElementById('galleryTrack');
-      if(!track || !galleryImages.length) return;
-      var step = galleryItemStep();
-      var maxScroll = track.scrollWidth - track.clientWidth;
-
-      if(direction > 0 && track.scrollLeft >= maxScroll - 2){
-        track.scrollTo({ left: 0, behavior: 'smooth' }); // loop back to start
-      } else if(direction < 0 && track.scrollLeft <= 2){
-        track.scrollTo({ left: maxScroll, behavior: 'smooth' }); // loop to end
-      } else {
-        track.scrollBy({ left: direction * step, behavior: 'smooth' });
-      }
-    }
-
-    function galleryNext(){ galleryScroll(1); startGalleryAutoplay(); }
-    function galleryPrev(){ galleryScroll(-1); startGalleryAutoplay(); }
-
-    function startGalleryAutoplay(){
-      if(galleryAutoplayTimer) clearInterval(galleryAutoplayTimer);
-      if(galleryImages.length > 1){
-        galleryAutoplayTimer = setInterval(function(){ galleryScroll(1); }, 3500);
-      }
-    }
-
-    // ---- AWARDS & RECOGNITION CAROUSEL (single item, same pattern as gallery) ----
-    var awardsData = [];
-    var awardsAutoplayTimer = null;
-
-    function renderAwards(awards){
-      awardsData = awards || [];
-      var track = document.getElementById('awardsTrack');
-      if(!track) return;
-
-      if(!awardsData.length){
-        track.innerHTML = '<div class="gallery-empty">Wala pang awards. Idagdag ang mga ito sa "Awards" sheet tab.</div>';
-        return;
-      }
-
-      var itemsHtml = '';
-      awardsData.forEach(function(a){
-        itemsHtml += '<div class="award-card">' +
-          '<img src="' + a.image + '" alt="' + (a.title || 'Award') + '" loading="lazy">' +
-          '<div class="award-caption">' +
-            '<div class="award-title">' + a.title + '</div>' +
-            '<div class="award-detail">' + a.detail + '</div>' +
-          '</div>' +
-        '</div>';
-      });
-      track.innerHTML = itemsHtml;
-      startAwardsAutoplay();
-    }
-
-    function awardsItemStep(){
-      var track = document.getElementById('awardsTrack');
-      var item = track ? track.querySelector('.award-card') : null;
-      if(!item) return 0;
-      var style = window.getComputedStyle(track);
-      var gap = parseFloat(style.columnGap || style.gap || '24') || 24;
-      return item.getBoundingClientRect().width + gap;
-    }
-
-    function awardsScroll(direction){
-      var track = document.getElementById('awardsTrack');
-      if(!track || !awardsData.length) return;
-      var step = awardsItemStep();
-      var maxScroll = track.scrollWidth - track.clientWidth;
-
-      if(direction > 0 && track.scrollLeft >= maxScroll - 2){
-        track.scrollTo({ left: 0, behavior: 'smooth' }); // loop back to start
-      } else if(direction < 0 && track.scrollLeft <= 2){
-        track.scrollTo({ left: maxScroll, behavior: 'smooth' }); // loop to end
-      } else {
-        track.scrollBy({ left: direction * step, behavior: 'smooth' });
-      }
-    }
-
-    function awardsNext(){ awardsScroll(1); startAwardsAutoplay(); }
-    function awardsPrev(){ awardsScroll(-1); startAwardsAutoplay(); }
-
-    function startAwardsAutoplay(){
-      if(awardsAutoplayTimer) clearInterval(awardsAutoplayTimer);
-      if(awardsData.length > 1){
-        awardsAutoplayTimer = setInterval(function(){ awardsScroll(1); }, 3500);
-      }
-    }
-
     document.addEventListener('DOMContentLoaded', function(){
-      // Load gallery photos from the "Gallery" sheet
-      apiGet('getGalleryImages', renderGallery, function(){ renderGallery([]); });
-
-      // Load awards & recognition from the "Awards" sheet
-      apiGet('getAwardsData', renderAwards, function(){ renderAwards([]); });
 
       var kitBox = document.querySelector('.lm-mockup');
       if(kitBox){
@@ -1287,17 +1192,19 @@
 
     function submitQuiz(){
       var name = document.getElementById('quiz-name').value;
+      var mobile = document.getElementById('quiz-mobile').value;
       var email = document.getElementById('quiz-email').value;
       var date = document.getElementById('quiz-date').value;
       var time = formatTime12Hour(document.getElementById('quiz-time').value);
       var statusEl = document.getElementById('quiz-status');
-      if(!name || !email || !date || !time){
-        statusEl.textContent = 'Please fill in your name, email, and preferred date/time.';
+      if(!name || !mobile || !email || !date || !time){
+        statusEl.textContent = 'Please fill in your name, mobile number, email, and preferred date/time.';
         statusEl.className = 'form-status err';
         return;
       }
       var data = {
         name: name,
+        mobile: mobile,
         email: email,
         date: date,
         time: time,
