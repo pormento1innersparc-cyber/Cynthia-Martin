@@ -157,7 +157,7 @@
     .agent-video-title{color:var(--navy);font-size:34px;margin-bottom:12px;}
     .agent-video-intro{max-width:650px;margin:0 auto 28px;color:#555;font-size:17px;line-height:1.7;}
     .agent-video-frame{position:relative;width:100%;max-width:720px;aspect-ratio:1/1;margin:0 auto;border:3px solid var(--gold);border-radius:18px;overflow:hidden;background:var(--navy);box-shadow:0 20px 45px rgba(11,31,77,.16);}
-    .agent-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+    .agent-video-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;object-fit:contain;background:#000;}
     .agent-video-note{margin-top:16px;color:#777;font-size:13px;}
     .agent-video-cta{margin-top:22px;}
     @media(max-width:700px){
@@ -544,8 +544,6 @@
           <!-- Portrait embedded directly, no external dependency -->
           <img src="https://drive.google.com/thumbnail?id=1st9mDJcHanBFHlxiWI3Z-NnGfrbmsWJi&sz=w1000" alt="Cynthia M. Martin">
         </div>
-        <div class="badge badge-1">✔ Condo Units</div>
-        <div class="badge badge-2">✔ House &amp; Lot</div>
       </div>
     </div>
   </section>
@@ -572,20 +570,17 @@
   <section class="agent-video-section reveal" id="agent-video">
     <div class="container">
       <div class="agent-video-wrap">
-        <div class="agent-video-kicker">Meet Cynthia</div>
-        <h2 class="agent-video-title">Meet Cynthia Martin, Your Mommy Property Finder</h2>
-        <p class="agent-video-intro">Damhin ang saya ng paghahanap ng pangarap na tahanan. Panoorin ang music video ni Cynthia Martin at alamin kung bakit siya ang tamang gabay para sa iyong pamilya mula unang tanong hanggang turnover.</p>
+        <div class="agent-video-kicker">Hi, Ako si Cynthia</div>
+        <h2 class="agent-video-title">Samahan Mo Ako sa Journey Mo Patungo sa Sariling Tahanan</h2>
+        <p class="agent-video-intro">Hi, ako si Cynthia Martin. Panoorin mo ang aking music video at makilala mo ako bilang iyong Mommy Property Finder. Sasamahan kita sa bawat step, mula sa unang tanong hanggang sa araw na hawak mo na ang susi ng iyong bagong tahanan.</p>
         <div class="agent-video-frame">
-          <iframe
-            src="https://drive.google.com/file/d/1RpKf2HFCARPYhxglL7nz5lvGkrGmU_t8/preview"
-            title="Cynthia M. Martin music video"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-          </iframe>
+          <video id="agentMusicVideo" controls playsinline preload="metadata" poster="https://drive.google.com/thumbnail?id=1st9mDJcHanBFHlxiWI3Z-NnGfrbmsWJi&amp;sz=w1000">
+            <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663935312158/xhsUiThKbkQATYbB.mp4" type="video/mp4">
+            Hindi ma-load ang video. Paki-refresh ang page at subukan ulit.
+          </video>
         </div>
-        <div class="agent-video-note">I-click ang play button para panoorin ang brand music video ni Cynthia.</div>
         <div class="agent-video-cta">
-          <button type="button" class="btn btn-gold" onclick="openQuizModal()">🏡 Talk to Cynthia About Your Home</button>
+          <button type="button" class="btn btn-gold" onclick="openQuizModal()">🏡 Makipag-usap sa Akin Tungkol sa Iyong Home</button>
         </div>
       </div>
     </div>
@@ -1085,13 +1080,18 @@
       function updateMusicButton(isPlaying){
         toggle.classList.toggle('is-playing', isPlaying);
         toggle.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
-        toggle.setAttribute('aria-label', isPlaying ? 'Pause background music' : 'Play background music');
+        toggle.setAttribute('aria-label', isPlaying ? 'Pause Music' : 'Play Music');
         toggle.querySelector('.music-label').textContent = isPlaying ? 'Pause Music' : 'Play Music';
         toggle.querySelector('.music-icon').textContent = isPlaying ? 'Ⅱ' : '♫';
       }
 
       toggle.addEventListener('click', function(){
+        var agentVideo = document.getElementById('agentMusicVideo');
         if(music.paused){
+          // Keep only one audio source playing at a time.
+          if(agentVideo && !agentVideo.paused){
+            agentVideo.pause();
+          }
           music.play().then(function(){ updateMusicButton(true); }).catch(function(){
             updateMusicButton(false);
           });
@@ -1106,8 +1106,32 @@
         toggle.querySelector('.music-label').textContent = 'Music unavailable';
         toggle.disabled = true;
         toggle.style.opacity = '0.7';
-        console.warn('Background music could not be loaded. Check Google Drive sharing permissions.');
+        console.warn('Background music could not be loaded. Check the audio URL.');
       });
+
+      var agentVideo = document.getElementById('agentMusicVideo');
+      if(agentVideo){
+        agentVideo.addEventListener('play', function(){
+          music.pause();
+          updateMusicButton(false);
+        });
+      }
+
+      // Try to start music after a meaningful scroll. Browsers may still block audible autoplay.
+      var scrollMusicAttempted = false;
+      function tryStartMusicAfterScroll(){
+        if(scrollMusicAttempted || !music.paused || window.scrollY < 300) return;
+        scrollMusicAttempted = true;
+        window.removeEventListener('scroll', tryStartMusicAfterScroll);
+        if(agentVideo && !agentVideo.paused) return;
+        music.play().then(function(){
+          updateMusicButton(true);
+        }).catch(function(){
+          // The floating music button remains available if autoplay is blocked.
+          updateMusicButton(false);
+        });
+      }
+      window.addEventListener('scroll', tryStartMusicAfterScroll, {passive:true});
     })();
 
     // ---- PAGE LOADER ----
