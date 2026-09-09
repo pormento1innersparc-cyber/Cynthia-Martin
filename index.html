@@ -105,7 +105,17 @@
     .nav-links a:hover{color:var(--gold);}
     .nav-link-btn{background:none;border:none;cursor:pointer;font-family:inherit;font-size:16px;font-weight:600;color:var(--navy);padding:0;}
     .nav-link-btn:hover{color:var(--gold);}
+    .message-short{display:none;}
     @media(max-width:800px){.nav-links{display:none;}}
+    @media(max-width:600px){
+      nav .container{padding:9px 14px;}
+      .logo{gap:0;}
+      .logo-badge{width:34px;height:34px;border-radius:7px;}
+      .brand-copy{display:none;}
+      .nav-message-btn{padding:8px 13px;font-size:13px;border-radius:999px;}
+      .message-full{display:none;}
+      .message-short{display:inline;}
+    }
 
     /* HERO */
     .hero{padding:70px 0 60px;}
@@ -521,9 +531,9 @@
     <div class="container">
       <div class="logo" onclick="scrollToTop()" style="cursor:pointer;">
         <div class="logo-badge"><img src="https://drive.google.com/thumbnail?id=1KdxbH74HfnrhZMXaigXV-m8MzuK2TQ4N&sz=w240" alt="Mommy Property Finder logo"></div>
-        <div>Mommy Property Finder<small>by Cynthia M. Martin</small></div>
+        <div class="brand-copy">Mommy Property Finder<small>by Cynthia M. Martin</small></div>
       </div>
-      <a href="https://www.facebook.com/profile.php?id=61574307432889" target="_blank" rel="noopener" class="btn btn-navy" style="padding:10px 20px;font-size:15px;">Message Mommy MPF</a>
+      <a href="https://www.facebook.com/profile.php?id=61574307432889" target="_blank" rel="noopener" class="btn btn-navy nav-message-btn"><span class="message-full">Message Mommy MPF</span><span class="message-short">Message</span></a>
     </div>
   </nav>
 
