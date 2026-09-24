@@ -550,7 +550,10 @@
     .calendar-day.selected{background:var(--gold);color:#fff;font-weight:800;}
     .calendar-day:disabled{color:#ccc;cursor:not-allowed;}
     .calendar-clear{margin-top:12px;width:100%;border:0;background:none;color:#123A7A;font-size:13px;font-weight:700;cursor:pointer;text-align:right;}
-    @media(max-width:600px){.calendar-panel{width:min(330px,calc(100vw - 72px));}.calendar-day{height:36px;}}
+    @media(max-width:600px){
+      .calendar-panel{left:50%;width:min(330px,calc(100vw - 72px));transform:translateX(-50%);}
+      .calendar-day{height:36px;}
+    }
 
     /* SOLD HOMES GALLERY */
     .sold-gallery{background:#fff;}
