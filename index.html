@@ -319,7 +319,7 @@
     .steps-section{background:#fff;}
     .step-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px;}
     .step-card{background:var(--warm-white);border:1px solid #eee;border-radius:16px;padding:26px 22px;border-top:4px solid var(--gold);}
-    .step-card .step-image{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:10px;margin-bottom:18px;}
+    .step-card .step-image{width:100%;aspect-ratio:6/5;object-fit:cover;object-position:center;display:block;border-radius:10px;margin-bottom:18px;}
     .step-card .step-num{font-size:14px;font-weight:800;color:var(--gold);letter-spacing:1.5px;margin-bottom:10px;}
     .step-card h3{font-size:19px;margin-bottom:8px;}
     .step-card p{font-size:15.5px;color:#555;line-height:1.6;}
@@ -328,7 +328,7 @@
       .steps-section h2{font-size:clamp(25px,6.5vw,32px);line-height:1.2;margin-bottom:12px;}
       .step-grid{grid-template-columns:1fr;max-width:560px;margin:28px auto 0;gap:18px;}
       .step-card{padding:18px;}
-      .step-card .step-image{margin-bottom:14px;}
+      .step-card .step-image{aspect-ratio:1/1;margin-bottom:14px;}
     }
 
     /* NO PRESSURE PROMISE */
@@ -377,16 +377,19 @@
       .painpoints-sub{font-size:16px;}
     }
     .promise{background:var(--warm-white);}
-    .promise-inner{max-width:960px;margin:0 auto;text-align:center;}
+    .promise-inner{max-width:1100px;margin:0 auto;text-align:center;}
     .promise-sub{font-style:italic;color:var(--royal);font-size:18px;margin-bottom:32px;}
-    .promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;}
-    .promise-card{background:var(--navy);border-radius:14px;padding:22px;}
-    .promise-card .promise-image{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;background:#fff;display:block;border-radius:10px;margin-bottom:16px;}
+    .promise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;text-align:left;}
+    .promise-card{background:var(--navy);border-radius:14px;padding:18px;}
+    .promise-card .promise-image{width:100%;aspect-ratio:6/5;object-fit:cover;object-position:center;background:#fff;display:block;border-radius:10px;margin-bottom:16px;}
     .promise-card .p-icon{font-size:26px;margin-bottom:10px;}
     .promise-card .p-title{color:#fff;font-weight:700;font-size:17px;margin-bottom:6px;}
     .promise-card .p-sub{color:#c7cfe6;font-size:15px;line-height:1.55;}
     .promise-closer{margin-top:30px;color:var(--navy);font-weight:700;font-style:italic;font-size:18px;}
-    @media(max-width:700px){.promise-grid{grid-template-columns:1fr;}}
+    @media(max-width:700px){
+      .promise-grid{grid-template-columns:1fr;}
+      .promise-card .promise-image{aspect-ratio:1/1;}
+    }
 
     /* SERVICES */
     .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
@@ -566,11 +569,11 @@
     .sold-gallery{background:#fff;}
     .static-grid-2col{
       display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
-      max-width:1080px;margin:34px auto 0;
+      max-width:1200px;margin:34px auto 0;
     }
     .static-card{position:relative;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(11,31,77,.08);}
     .static-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .4s ease;}
-    .sold-gallery .static-card img{aspect-ratio:5/4;}
+    .sold-gallery .static-card img{aspect-ratio:6/5;}
     .static-card:hover img{transform:scale(1.06);}
     .awards-section .static-card img{aspect-ratio:auto;object-fit:contain;background:#f4f4f4;max-height:760px;}
     .awards-section .static-card:hover img{transform:none;}
@@ -582,7 +585,8 @@
       letter-spacing:0.4px;padding:5px 10px;border-radius:50px;box-shadow:0 4px 10px rgba(0,0,0,.2);z-index:2;
     }
     @media(max-width:800px){
-      .static-grid-2col{grid-template-columns:1fr;max-width:420px;}
+      .static-grid-2col{grid-template-columns:1fr;max-width:620px;}
+      .sold-gallery .static-card img{aspect-ratio:1/1;}
     }
     .static-grid-1col{
       display:grid;grid-template-columns:1fr;gap:24px;
